@@ -6,6 +6,5 @@
 <mapper namespace="com.awei.dao.UserDao">
     <select id="findAll" resultType="com.awei.model.User">
         select * from tbl_user
-        
     </select>
 </mapper>
