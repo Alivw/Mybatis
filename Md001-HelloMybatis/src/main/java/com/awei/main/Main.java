@@ -1,5 +1,6 @@
 package com.awei.main;
 
+import com.awei.dao.UserDao;
 import com.awei.model.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -16,15 +17,25 @@ import java.util.List;
  * @Create: 2021-08-01 16:23
  **/
 public class Main {
+//    public static void main(String[] args) throws IOException {
+//        String config = "mybatis-config.xml";
+//        InputStream in = Resources.getResourceAsStream(config);
+//        SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
+//        SqlSessionFactory factory = builder.build(in);
+//        SqlSession sqlSession = factory.openSession();
+//        String sqlId = "com.awei.dao.UserDao.findAll";
+//        List<User> UserList = sqlSession.selectList(sqlId);
+//        UserList.forEach(user -> System.out.println(user));
+//    }
+
     public static void main(String[] args) throws IOException {
         String config = "mybatis-config.xml";
         InputStream in = Resources.getResourceAsStream(config);
         SqlSessionFactoryBuilder builder = new SqlSessionFactoryBuilder();
         SqlSessionFactory factory = builder.build(in);
         SqlSession sqlSession = factory.openSession();
-        String sqlId = "com.awei.dao.UserDao.findAll";
-        List<User> UserList = sqlSession.selectList(sqlId);
-        UserList.forEach(user -> System.out.println(user));
-
+        UserDao userDao = sqlSession.getMapper(UserDao.class);
+        List<User> userList = userDao.findAll();
+        userList.forEach(user -> System.out.println(user));
     }
 }
