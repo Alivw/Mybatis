@@ -1,8 +1,13 @@
 package com.awei.web;
 
+import com.awei.entity.User;
+import com.awei.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 /**
  * @Description:
@@ -12,11 +17,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class HelloController {
 
-    @GetMapping("/hello")
+    @Autowired
+    private UserService userService;
+
+    @GetMapping("/hellouser")
     public @ResponseBody
-    String hello(String[] ids) {
+    List<User> hello(Integer[] ids) {
         System.out.println(ids);
-        return "Hello world";
+        return userService.findUserByIds(ids);
     }
 
 }

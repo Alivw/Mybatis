@@ -23,14 +23,17 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-
-    <!--servlet-->
-    <!--<dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>3.1.0</version>
-      <scope>provided</scope>
-    </dependency>-->
+    <!--jackson-->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.9.0</version>
+    </dependency>
 
     <dependency>
       <groupId>javax.servlet</groupId>
@@ -59,35 +62,12 @@
       <artifactId>spring-webmvc</artifactId>
       <version>5.2.5.RELEASE</version>
     </dependency>
-    <!--事务的-->
-<!--    <dependency>-->
-<!--      <groupId>org.springframework</groupId>-->
-<!--      <artifactId>spring-tx</artifactId>-->
-<!--      <version>5.2.5.RELEASE</version>-->
-<!--    </dependency>-->
 
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-jdbc</artifactId>
       <version>5.2.5.RELEASE</version>
     </dependency>
-    <!--aspectj 依赖-->
-<!--    <dependency>-->
-<!--      <groupId>org.springframework</groupId>-->
-<!--      <artifactId>spring-aspects</artifactId>-->
-<!--      <version>5.2.5.RELEASE</version>-->
-<!--    </dependency>-->
-   <!-- jackson
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-core</artifactId>
-      <version>2.9.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.9.0</version>
-    </dependency>-->
     <!--mybatis 和 spring 整合的-->
     <dependency>
       <groupId>org.mybatis</groupId>

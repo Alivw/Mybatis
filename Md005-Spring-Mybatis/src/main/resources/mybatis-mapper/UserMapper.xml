@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace: mapper类的全限定名称-->
+<mapper namespace="com.awei.dao.UserDao">
+    <select id="findUserByIds" resultType="com.awei.entity.User">
+        select * from  tbl_user
+        <where>
+            id in
+            <foreach collection="array" item="id" open="(" close=")" separator=",">
+                #{id}
+            </foreach>
+        </where>
+        
+    </select>
+</mapper>

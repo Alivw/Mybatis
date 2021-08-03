@@ -12,9 +12,9 @@
         $("#c").click(function () {
             // alert(123)
 
-            var ids = ['123', '1321'];
+            var ids = ['1', '2'];
             $.ajax({
-                url: 'hello',
+                url: 'hellouser',
                 contentType: 'application/json',
                 traditional: true,
                 data:{
