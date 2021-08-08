@@ -1,5 +1,9 @@
 package com.awei.dao;
 
+import com.awei.entity.User;
+
+import java.util.List;
+
 /**
  * @Description:
  * @Author: Awei
@@ -8,5 +12,10 @@ package com.awei.dao;
 public interface UserDao {
 
 
-
+    /**
+     * 通过id 数组查找用户
+     * @param ids
+     * @return
+     */
+    List<User> findUserByIds(Integer[] ids);
 }

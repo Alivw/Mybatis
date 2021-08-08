@@ -24,14 +24,15 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:conf/mybatis.xml"/>
+        <property name="mapperLocations" value="classpath:mybatis-mapper/*.xml"/>
     </bean>
     <!--动态代理对象-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
-        <property name="basePackage" value="com.awei.crm.mapper"/>
+        <property name="basePackage" value="com.awei.dao"/>
     </bean>
 
     <!--声明service 的注解 @service 扫描的位置-->
-<!--    <context:component-scan base-package="com.awei.crm.service"/>-->
+    <context:component-scan base-package="com.awei.service"/>
 
 </beans>

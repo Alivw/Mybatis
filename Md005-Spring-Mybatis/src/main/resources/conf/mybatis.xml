@@ -12,5 +12,6 @@
             使用package要求：mapper文件和类名一致
             mapper文件和类名在同一目录
         -->
+        <!-- applicationContext.xml 中 sqlsessionFactory中已经配置 扫描mapper 这里可以为空-->
     </mappers>
 </configuration>
