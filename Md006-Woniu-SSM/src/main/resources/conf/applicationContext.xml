@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 扫描带 @service的类加入容器中-->
+    <context:component-scan base-package="com.awei.service"/>
+    <!-- 扫描到 @Repository的类加入容器中-->
+    <context:component-scan base-package="com.awei.dao"/>
+
+    <!-- 数据源-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="url" value="jdbc:mysql://47.96.76.101:3306/mybatis_test?characterEncoding=utf-8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="Szw159421"/>
+    </bean>
+
+    <!--mybatis sql 日志-->
+    <bean id="configuration" class="org.apache.ibatis.session.Configuration">
+        <property name="logImpl" value="org.apache.ibatis.logging.stdout.StdOutImpl"/>
+    </bean>
+
+    <bean id="sqlsessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configuration" ref="configuration"/>
+        <property name="mapperLocations" value="classpath:mybatis-conf/*.xml"/>
+        <property name="typeAliasesPackage" value="com.awei.model"/>
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlsessionFactory"/>
+        <property name="basePackage" value="com.awei.dao"/>
+    </bean>
+</beans>

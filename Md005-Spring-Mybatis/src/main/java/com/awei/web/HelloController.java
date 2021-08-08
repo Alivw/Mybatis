@@ -16,6 +16,9 @@ public class HelloController {
     public @ResponseBody
     String hello(String[] ids) {
         System.out.println(ids);
+        System.out.println(ids[0]);
+        System.out.println(ids[1]);
+
         return "Hello world";
     }
 
