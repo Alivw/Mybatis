@@ -7,11 +7,6 @@
     <!--加载属性文件-->
     <!--设置别名-->
     <mappers>
-        <!--
-            name:包名，包中的所有xml文件都能被加载
-            使用package要求：mapper文件和类名一致
-            mapper文件和类名在同一目录
-        -->
         <!-- applicationContext.xml 中 sqlsessionFactory中已经配置 扫描mapper 这里可以为空-->
     </mappers>
 </configuration>

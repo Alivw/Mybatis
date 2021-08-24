@@ -18,7 +18,7 @@
     <!--mybatis sql 日志-->
     <bean id="configuration" class="org.apache.ibatis.session.Configuration">
         <property name="logImpl" value="org.apache.ibatis.logging.stdout.StdOutImpl"/>
-    </bean>
+    </bean> 
 
     <!--注册sqlSessionFactory-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

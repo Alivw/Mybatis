@@ -9,7 +9,41 @@
     <context:component-scan base-package="com.awei.controller"/>
 
     <!-- 注解驱动-->
-    <mvc:annotation-driven/>
+    <!-- 设置配置方案 -->
+    <mvc:annotation-driven>
+        <!-- 设置不使用默认的消息转换器 -->
+        <mvc:message-converters register-defaults="false">
+            <!-- 配置Spring的转换器, 字符编码 -->
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="UTF-8" index="0"/>
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>text/plain;charset=UTF-8</value>
+                    </list>
+                </property>
+            </bean>
+<!--            <bean class="org.springframework.http.converter.ByteArrayHttpMessageConverter"/>-->
+<!--            <bean class="org.springframework.http.converter.BufferedImageHttpMessageConverter"/>-->
+            <!--配置fastjson中实现HttpMessageConverter接口的转换器-->
+            <bean id="fastJsonHttpMessageConverter"
+                  class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                <!-- 加入支持的媒体类型：返回contentType -->
+                <property name="supportedMediaTypes">
+                    <list>
+                        <!-- 这里顺序不能反，一定先写text/html,不然ie下会出现下载提示 -->
+                        <value>text/html;charset=UTF-8</value>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
+                <!--枚举类型，对于返回List集合中引用同一个对象，忽略引用检测【注意不要出现循环引用现象】-->
+                <property name="features">
+                    <list>
+                        <value>DisableCircularReferenceDetect</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
     <!-- 处理静态资源-->
     <mvc:default-servlet-handler/>
     <!-- 视图解析器-->
