@@ -11,7 +11,7 @@
 
     <!-- 数据源-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
-        <property name="url" value="jdbc:mysql://47.96.76.101:3306/mybatis_test?characterEncoding=utf-8"/>
+        <property name="url" value="jdbc:mysql://awei.cn:3306/mybatis_test?characterEncoding=utf-8"/>
         <property name="username" value="root"/>
         <property name="password" value="Szw159421"/>
     </bean>
